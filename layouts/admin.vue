@@ -3,8 +3,8 @@
     <client-only>
       <notifications />
     </client-only>
-    <VAdminHeader />
-    <VAdminSidebar />
+    <AdminHeader />
+    <AdminSidebar />
     <div class="admin__body">
       <Nuxt />
     </div>
