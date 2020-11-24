@@ -1,11 +1,16 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: "nuxt-blog",
+    title: "Hao Vo Anh 28 Blog",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "hao vo anh 28 blog" }
+      {
+        hid: "description",
+        name: "description",
+        content: "haovoanh28 là trang web cá nhân của Võ Anh Hào. Dùng để ghi lại những gì mình thích. Trang web bao gồm nhiều lĩnh vực như khoa học - công nghệ, văn hóa - đời sống, thuật toán - lập trình, tâm linh - bí ẩn"
+      },
+      { name: "author", content: "haovoanh28" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
