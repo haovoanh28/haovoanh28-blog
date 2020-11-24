@@ -1,0 +1,77 @@
+{
+   "login": {
+      "title": "Login",
+      "button": "Login"
+   },
+   "register": {
+      "title": "Create an account",
+      "button": "Create an account"
+   },
+   "edit": {
+      "title": "Edit profile",
+      "button": "Commit changes"
+   },
+   "sidebar": {
+      "search": "Search",
+      "home": "Home",
+      "about": "About",
+      "task": "Task",
+      "login":" Login ",
+      "logout": "Logout",
+      "contact": "Contact",
+      "projects": "Projects"
+   },
+   "adminSidebar": {
+      "overview":"Overview",
+      "post":"Post",
+      "home":"Home",
+      "editProfile": "Edit Profile",
+      "register": "Register",
+      "signOut":"Sign Out"
+   },
+   "post": {
+      "create": "create a post",
+      "edit": "edit a post",
+      "coverImg": "Cover image url",
+      "title": "Post title",
+      "introduction": "Introduction",
+      "createBtn": "Create post",
+      "editBtn": "commit changes"
+
+   },
+   "generalMessage": {
+      "email": "email",
+      "password": "password",
+      "confirmPassword": "Confirm password ",
+      "age": "age",
+      "fullName": "Full name",
+      "usefullLinks": "Usefull Links",
+      "clear": "Clear",
+      "noPost": "Can't find any post"
+   },
+   "categories": {
+      "title":"Categories",
+      "technology": "Technology",
+      "life": "Life",
+      "security": "Security",
+      "algorithms": "Algorithms",
+      "programming":"Programming"
+   },
+   "errMessage" : {
+      "emailRequired" : "Email is required",
+      "emailCheck": "Format is wrong",
+      "passwordRequired": "Password is required",
+      "passwordCharacters" : "Password must have at least 7 characters",
+      "confirmPasswordRequired": "Confirm password is required",
+      "confirmPasswordCharacters" : "Confirm password must have at least 7 characters",
+      "confirmPasswordNotTheSame": "Confirm password and pass word are not the same",
+      "ageRequired" : "Age is required",
+      "ageRange": "Age must be in range 18 and 40",
+      "nameRequired": "Name is required",
+      "nameCharacters" : "Name must have at least 4 characters",
+      "coverImgRequired": "Cover image is required",
+      "titleRequired": "Title is required",
+      "introductionRequired": "Introduction is required",
+      "contentRequired": "Content is required"
+   }
+}

@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700&display=swap");
+
+html {
+  font-family: "Source Sans Pro", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.5rem;
+}
+
+.container {
+  background-color: $light-gray;
+}
+
+.notification-title {
+  margin-bottom: 1rem !important;
+}
+
+.err-group {
+  padding-bottom: 1rem;
+}
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.err-text {
+  color: red !important;
+  font-size: 1.2rem;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-big {
+  font-size: 2.5rem !important;
+}
+
+.text-medium {
+  font-size: 2rem !important;
+}
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.fw-600 {
+  font-weight: 600 !important;
+}
+
+.fw-800 {
+  font-weight: 800 !important;
+}

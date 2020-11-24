@@ -1,0 +1,28 @@
+@mixin flex_center {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin tablet {
+  @media only screen and (max-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin large_phone {
+  @media only screen and (max-width: #{$large_phone-width}) {
+    @content;
+  }
+}
+
+@mixin medium_phone {
+  @media only screen and (max-width: #{$medium_phone-width}) {
+    @content;
+  }
+}
+
+@mixin small_phone {
+  @media only screen and (max-width: #{$small_phone-width}) {
+    @content;
+  }
+}

@@ -1,0 +1,79 @@
+{
+   "login": {
+      "title": "Đăng nhập",
+      "button": "Đăng nhập"
+   },
+   "register": {
+      "title": "Tạo một tài khoản",
+      "button": "Tạo một tài khoản"
+   },
+   "edit": {
+      "title": "Thay đổi thông tin",
+      "button": "Xác nhận"
+   },
+   "sidebar": {
+      "search": "Tìm kiếm",
+      "home": "Trang chủ",
+      "about": "Về tôi",
+      "task": "Quản lý công việc",
+      "editProfile": "Thông tin cá nhân",
+      "register": "Đăng ký",
+      "login":" Đăng nhập ",
+      "logout": "Đăng xuất",
+      "contact": "Liên lạc",
+      "projects": "Dự án"
+   },
+   "adminSidebar": {
+      "overview":"Tổng quan",
+      "post":"Post",
+      "home":"Trang chủ",
+      "editProfile": "Chỉnh sửa",
+      "register": "Đăng ký",
+      "signOut":"Đăng xuất"
+   },
+   "post": {
+      "create": "Tạo mới",
+      "edit": "Chỉnh sửa",
+      "coverImg": "Ảnh bìa",
+      "title": "Tiêu đề",
+      "introduction": "Tóm tắt",
+      "createBtn": "Tạo post",
+      "editBtn": "Xác nhận"
+
+   },
+   "generalMessage": {
+      "email": "Địa chỉ email",
+      "password": "Mật khẩu",
+      "confirmPassword": "Xác nhận mật khẩu ",
+      "age": "Tuổi",
+      "fullName": "Tên đầy đủ",
+      "usefullLinks": "Chuyển trang",
+      "clear": "Hủy",
+      "noPost": "Không tìm thấy các bài post"
+   },
+   "categories": {
+      "title":"Thể loại",
+      "technology": "Công nghệ",
+      "life": "Đời sống",
+      "security": "Bảo mật",
+      "algorithms": "Thuật toán",
+      "programming":"Lập trình"
+   },
+   "errMessage" : {
+      "emailRequired" : "Địa chỉ email không được để trống",
+      "emailCheck": "Định dạng email sai",
+      "passwordRequired": "Mật khẩu không được để trống",
+      "passwordCharacters" : "Mật khẩu phải có ít nhất 7 ký tự",
+      "confirmPasswordRequired": "Xác nhận mật khẩu không được để trống",
+      "confirmPasswordCharacters" : "Xác nhận mật khẩu phải có ít nhất 7 ký tự",
+      "confirmPasswordNotTheSame": "Không trùng khớp với mật khẩu",
+      "ageRequired" : "Tuổi không được để trống",
+      "ageRange": "Tuổi phải ở trong khoảng 18 đến 40",
+      "nameRequired": "Tên không được để trống",
+      "nameCharacters" : "Tên ít nhất phải có 4 ký tự",
+      "coverImgRequired": "Ảnh bìa không được để trống",
+      "titleRequired": "Tiêu đề không được để trống",
+      "introductionRequired": "Tóm tắt không được để trống",
+      "contentRequired": "Nội dung không được để trống"
+   }
+}
