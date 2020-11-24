@@ -11,7 +11,11 @@ export default {
         content:
           "haovoanh28 là trang web cá nhân của Võ Anh Hào. Dùng để ghi lại những gì mình thích. Trang web bao gồm nhiều lĩnh vực như khoa học - công nghệ, văn hóa - đời sống, thuật toán - lập trình, tâm linh - bí ẩn"
       },
-      { name: "author", content: "haovoanh28 - Võ Anh Hào" }
+      { name: "author", content: "haovoanh28 - Võ Anh Hào" },
+      {
+        name: "google-site-verification",
+        content: "t_lRNuZAkV-XqmJdaF2IPa9odR8cjUyGCpUEqw1LVf0"
+      }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
