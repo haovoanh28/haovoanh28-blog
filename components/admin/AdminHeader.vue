@@ -15,7 +15,11 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$store.commit("render/SET_OPEN_MENU");
+      if (this.isMenu) {
+        this.$store.commit("render/SET_CLOSE_MENU");
+      } else {
+        this.$store.commit("render/SET_OPEN_MENU");
+      }
     },
   },
 };
