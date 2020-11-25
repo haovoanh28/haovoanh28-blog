@@ -83,30 +83,32 @@ export default {
   transition: margin-left 0.3s;
   z-index: 5;
   margin-left: 0;
+  margin-top: 6rem;
   opacity: 0;
   visibility: hidden;
 
   @include large_phone {
     min-height: 100vh;
     margin-left: -25%;
-    border-right: 1px solid $white;
-    width: 30%;
+    width: 45%;
     opacity: 1;
     visibility: visible;
+    border-right: 1px solid $white;
   }
 
   @include medium_phone {
-    width: 40%;
+    width: 55%;
     margin-left: -40%;
   }
 
   @include small_phone {
-    width: 65%;
+    width: 70%;
     margin-left: -60%;
   }
 }
 
 .header2-head {
+  border-top: 1px solid $white;
   display: flex;
   padding: 1rem 0 3rem 0;
   text-align: center;
@@ -170,8 +172,5 @@ export default {
 .nuxt-link-exact-active {
   background-position: left bottom !important;
   color: $black !important;
-
-  svg {
-  }
 }
 </style>
