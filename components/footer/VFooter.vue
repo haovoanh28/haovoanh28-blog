@@ -147,6 +147,7 @@ footer {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0;
 }
 
 .footer__main {
