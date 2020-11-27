@@ -7,6 +7,8 @@ export const mutations = {};
 export const actions = {
   async uploadAvatarAsync({ commit }, { userId, data }) {
     try {
+      commit("account/login/SET_LOADING", null, { root: true });
+
       const response = await this.$api.$post(`/user/${userId}/avatar`, data);
       const user = response.data;
       this.$cookies.set("user", user, {
@@ -28,17 +30,19 @@ export const actions = {
         title: "Failed",
         text: err.response.data.message
       });
+    } finally {
+      commit("account/login/SET_LOADED", null, { root: true });
     }
   },
   async updateProfileAsync({ commit }, payload) {
     try {
+      commit("account/login/SET_LOADING", null, { root: true });
+
       const { id, fullName, age } = payload;
       const response = await this.$api.$post(`/user/${id}/`, {
         fullName,
         age
       });
-
-      console.log(response);
 
       const user = response.data;
       this.$cookies.set("user", user, {
@@ -60,6 +64,8 @@ export const actions = {
         title: "Failed",
         text: err.response.data.message
       });
+    } finally {
+      commit("account/login/SET_LOADED", null, { root: true });
     }
   }
 };

@@ -16,6 +16,7 @@
           w100
           v-if="previewImage"
           @click.native="handleUploadImage"
+          :loading="loading"
           >Upload</BaseButton
         >
       </div>
@@ -48,9 +49,12 @@
             $t("errMessage.ageRange")
           }}</BaseText>
         </div>
-        <BaseButton uppercase @click.native="handleUpdateProfile">{{
-          $t("edit.button")
-        }}</BaseButton>
+        <BaseButton
+          uppercase
+          @click.native="handleUpdateProfile"
+          :loading="loading"
+          >{{ $t("edit.button") }}</BaseButton
+        >
       </div>
     </div>
   </div>
@@ -71,6 +75,7 @@ export default {
   },
   computed: {
     ...mapState("auth", ["user"]),
+    ...mapState("account/login", ["loading"]),
   },
   methods: {
     ...mapActions("account/edit", ["uploadAvatarAsync", "updateProfileAsync"]),
