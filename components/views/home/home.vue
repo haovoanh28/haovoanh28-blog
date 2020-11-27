@@ -68,16 +68,18 @@ export default {
       scrollToBody();
     },
   },
-  watchQuery(newQuery, oldQuery) {
-    const newPage = newQuery.page;
-    console.log(newPage);
-    if (newPage == 1) {
-      this.getPostByPageAsync({
-        page: 1,
-        limit: this.limit,
-      });
-      this.currentPage = 1;
-    }
+  watch: {
+    $route() {
+      const { page } = this.$route.query;
+      this.currentPage = Number(page);
+      if (page == 1) {
+        this.$router.push({ path: "/?page=1" });
+        this.getPostByPageAsync({
+          page: 1,
+          limit: this.limit,
+        });
+      }
+    },
   },
   async fetch() {
     const { page } = this.$route.query;
