@@ -99,7 +99,7 @@ export default {
 }
 
 .post-detail__content {
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: 1.6rem;
 }
 
