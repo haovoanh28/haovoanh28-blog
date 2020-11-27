@@ -86,9 +86,14 @@ export default {
         page: page,
         limit: this.limit,
       });
+      console.log(this.paginatedPosts);
       return;
     } else {
       this.$router.push({ path: "/?page=1" });
+      await this.getPostByPageAsync({
+        page: 1,
+        limit: this.limit,
+      });
     }
   },
   mounted() {
