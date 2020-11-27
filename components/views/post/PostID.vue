@@ -15,8 +15,8 @@
         <div class="post-detail__cover">
           <img :src="post.coverImg" alt="cover" />
         </div>
-        <div class="post-detail__content">
-          <BaseText fontSize="1.8rem" v-html="post.content"></BaseText>
+        <div>
+          <div class="post-detail__content" v-html="post.content"></div>
         </div>
       </client-only>
     </template>
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post-detail {
   width: 90%;
   margin: 0 auto;
@@ -99,8 +99,11 @@ export default {
 }
 
 .post-detail__content {
-  line-height: 1.5;
-  font-size: 1.6rem;
+  p {
+    line-height: 1.5 !important;
+    font-size: 1.6rem !important;
+    letter-spacing: 1px !important;
+  }
 }
 
 img {
