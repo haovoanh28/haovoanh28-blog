@@ -8,7 +8,6 @@ export const actions = {
   async uploadAvatarAsync({ commit }, { userId, data }) {
     try {
       const response = await this.$api.$post(`/user/${userId}/avatar`, data);
-      // const imgPath = `http://localhost:8080/uploads/${response.data.data}`;
       const user = response.data;
       this.$cookies.set("user", user, {
         path: "/",
@@ -54,7 +53,7 @@ export const actions = {
       });
 
       await commit("auth/SET_USER", user, { root: true });
-    } catch (err) { 
+    } catch (err) {
       console.log(err);
       this.$notify({
         type: "error",

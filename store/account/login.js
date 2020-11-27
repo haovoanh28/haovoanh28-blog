@@ -1,10 +1,22 @@
 export const state = () => {
-  return {};
+  return {
+    loading: false
+  };
+};
+
+export const mutations = {
+  SET_LOADING(state) {
+    state.loading = true;
+  },
+  SET_LOADED(state) {
+    state.loading = false;
+  }
 };
 
 export const actions = {
   async loginAsync({ commit }, { email, password }) {
     try {
+      commit("SET_LOADING");
       const response = await this.$api.$post("/user/login", {
         email,
         password
@@ -42,6 +54,8 @@ export const actions = {
         title: "Failed",
         text: err.response.data.message
       });
+    } finally {
+      commit("SET_LOADED");
     }
   }
 };

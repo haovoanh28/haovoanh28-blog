@@ -24,20 +24,30 @@
           placeholder="Full Name"
           :icon="['fas', 'user']"
           border
-          v-model="fullName"
+          v-model="$v.fullName.$model"
         />
+        <div class="err-group" v-if="$v.fullName.$error">
+          <BaseText errText v-if="!$v.fullName.required">{{
+            $t("errMessage.nameRequired")
+          }}</BaseText>
+          <BaseText errText v-if="!$v.fullName.minLength">{{
+            $t("errMessage.nameCharacters")
+          }}</BaseText>
+        </div>
         <BaseInput
           placeholder="Age"
           :icon="['fab', 'autoprefixer']"
           border
-          v-model="age"
+          v-model="$v.age.$model"
         />
-        <BaseInput
-          placeholder="New Password"
-          :icon="['fas', 'lock']"
-          border
-          v-model="password"
-        />
+        <div class="err-group" v-if="$v.age.$error">
+          <BaseText errText v-if="!$v.age.required">{{
+            $t("errMessage.ageRequired")
+          }}</BaseText>
+          <BaseText errText v-if="!$v.age.between">{{
+            $t("errMessage.ageRange")
+          }}</BaseText>
+        </div>
         <BaseButton uppercase @click.native="handleUpdateProfile">{{
           $t("edit.button")
         }}</BaseButton>
@@ -48,13 +58,13 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import { required, between, minLength } from "vuelidate/lib/validators";
 
 export default {
   data() {
     return {
       fullName: "",
       age: "",
-      password: "",
       previewImage: "",
       uploadedImage: "",
     };
@@ -82,6 +92,18 @@ export default {
       });
     },
     handleUpdateProfile() {
+      this.$v.$touch();
+
+      if (this.$v.$error || this.$v.$invalid) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: "Please correct the form",
+        });
+
+        return;
+      }
+
       this.updateProfileAsync({
         id: this.user._id,
         fullName: this.fullName,
@@ -90,8 +112,27 @@ export default {
     },
   },
   mounted() {
-    this.fullName = this.user.fullName;
-    this.age = this.user.age.toString();
+    if (this.user.fullName) {
+      this.fullName = this.user.fullName;
+    } else {
+      this.fullName = "";
+    }
+
+    if (this.user.age) {
+      this.age = this.user.age.toString();
+    } else {
+      this.age = "";
+    }
+  },
+  validations: {
+    fullName: {
+      required,
+      minLength: minLength(4),
+    },
+    age: {
+      required,
+      between: between(18, 40),
+    },
   },
 };
 </script>

@@ -63,9 +63,6 @@ export default {
   }
 }
 
-.blog-preview__title {
-}
-
 .blog-preview__content {
   & img {
     display: none;

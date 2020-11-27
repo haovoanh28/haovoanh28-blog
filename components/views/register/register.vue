@@ -88,8 +88,13 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
-import { required, email, sameAs, minLength } from "vuelidate/lib/validators";
-import between from "vuelidate/lib/validators/between";
+import {
+  required,
+  email,
+  sameAs,
+  minLength,
+  between,
+} from "vuelidate/lib/validators";
 
 export default {
   data() {

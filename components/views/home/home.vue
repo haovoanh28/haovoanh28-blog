@@ -39,6 +39,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import scrollToBody from "@/libs/helpers/scrollToBody";
 
 export default {
   data() {
@@ -64,6 +65,7 @@ export default {
         limit: this.limit,
       });
       this.$router.push({ path: `/?page=${this.currentPage}` });
+      scrollToBody();
     },
   },
   watchQuery(newQuery, oldQuery) {

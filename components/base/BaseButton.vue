@@ -1,5 +1,5 @@
 <template>
-  <button :class="classObj" :style="styleObj" :disabled="disabled">
+  <button :class="classObj" :style="styleObj" :disabled="disabled || loading">
     <template v-if="loading">
       <font-awesome-icon :icon="['fas', 'cog']" />
     </template>

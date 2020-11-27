@@ -6,8 +6,12 @@
           $t("post.create")
         }}</BaseButton>
       </div>
-
-      <template v-if="paginatedPosts.length > 0">
+      <template v-if="loading">
+        <content-placeholders v-for="n in limit" :key="`${n}-post-placeholder`">
+          <content-placeholders-heading />
+        </content-placeholders>
+      </template>
+      <template v-else-if="paginatedPosts.length > 0">
         <AdminPostItem
           v-for="post in paginatedPosts"
           :key="`admin-${post._id}`"
@@ -35,17 +39,19 @@ export default {
   data() {
     return {
       currentPage: 1,
+      limit: 10,
     };
   },
   async fetch() {
     await this.getPostByPageAsync({
       page: this.currentPage,
-      limit: 10,
+      limit: this.limit,
     });
   },
   computed: {
     ...mapState("post/get", [
       "posts",
+      "loading",
       "loadingId",
       "paginatedPosts",
       "totalPages",
@@ -94,5 +100,9 @@ export default {
 .admin__post-body {
   width: 100%;
   margin: 0 auto;
+}
+
+.vue-content-placeholders {
+  margin-bottom: 3rem;
 }
 </style>

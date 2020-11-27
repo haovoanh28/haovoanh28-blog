@@ -17,7 +17,7 @@
       </div>
       <BaseInput
         type="password"
-        :placeholder="$t('generalMessage.password')"
+        :placeholder="$t  ('generalMessage.password')"
         :icon="['fas', 'lock']"
         v-model="$v.password.$model"
       />
@@ -26,7 +26,7 @@
           $t("errMessage.passwordRequired")
         }}</BaseText>
       </div>
-      <BaseButton display="block" width="100%">{{
+      <BaseButton display="block" width="100%" :loading="loading">{{
         $t("login.button")
       }}</BaseButton>
     </form>
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
@@ -43,6 +43,9 @@ export default {
       email: "",
       password: "",
     };
+  },
+  computed: {
+    ...mapState("account/login", ["loading"]),
   },
   methods: {
     ...mapActions("account/login", ["loginAsync"]),
