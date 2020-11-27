@@ -23,7 +23,7 @@ import handleText from "@/libs/helpers/handleText";
 export default {
   props: {
     post: Object,
-  },  
+  },
   methods: {
     handleText,
     handleForward(id) {
@@ -42,6 +42,8 @@ export default {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   background-color: white;
   cursor: pointer;
+  border-radius: 4px;
+  overflow: hidden;
   p {
     padding: 1rem 1.5rem !important;
   }

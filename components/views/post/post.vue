@@ -34,6 +34,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import scrollToBody from "@/libs/helpers/scrollToBody";
 
 export default {
   data() {
@@ -73,6 +74,7 @@ export default {
         limit: 10,
       });
       this.$router.push({ path: `/admin/post/?page=${page}` });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
   },
   created() {

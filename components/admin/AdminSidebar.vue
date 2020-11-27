@@ -33,7 +33,7 @@
         </ul>
         <ul>
           <li>
-            <a href="/"
+            <a href="/?page=1"
               ><font-awesome-icon :icon="['fas', 'home']" />
               <span>
                 {{ $t("adminSidebar.home") }}

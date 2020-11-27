@@ -30,6 +30,10 @@
         <li @click="toggleMenu">
           <font-awesome-icon :icon="['fas', 'bars']" />
         </li>
+        <li>
+          <p>Hao Vo</p>
+        </li>
+        <li></li>
       </ul>
     </nav>
   </header>
@@ -76,7 +80,8 @@ export default {
   ul {
     height: 100%;
     display: flex;
-    width: 40%;
+    justify-content: space-between;
+    width: 100%;
     color: $white;
     list-style-type: none;
 

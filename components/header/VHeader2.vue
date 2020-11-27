@@ -7,7 +7,7 @@
       <nav class="header2-nav">
         <ul>
           <li>
-            <nuxt-link to="/"
+            <nuxt-link to="/?page=1" replace
               ><font-awesome-icon :icon="['fas', 'home']" />
               {{ $t("sidebar.home") }}</nuxt-link
             >

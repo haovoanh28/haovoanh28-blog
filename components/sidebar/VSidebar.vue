@@ -89,6 +89,7 @@ export default {
 .sidebar__categories {
   padding: 1rem;
   background-color: lighten($light-gray, 8%);
+  border-radius: 4px;
 
   ul {
     list-style-type: none;

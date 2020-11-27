@@ -91,17 +91,6 @@ export default {
       this.$router.push({ path: "/?page=1" });
     }
   },
-  created() {
-    const { page } = this.$route.query;
-    if (!page) {
-      this.$router.push({ path: "/?page=1" });
-    } else if (page > this.totalPages) {
-      return;
-    } else {
-      this.currentPage = Number(page);
-      this.$router.push({ path: `/?page=${page}` });
-    }
-  },
   mounted() {
     const text = "Hào Võ";
     let i = 0;
@@ -120,6 +109,16 @@ export default {
     };
 
     typeWriter();
+
+    const { page } = this.$route.query;
+    if (!page) {
+      this.$router.push({ path: "/?page=1" });
+    } else if (page > this.totalPages) {
+      return;
+    } else {
+      this.currentPage = Number(page);
+      this.$router.push({ path: `/?page=${page}` });
+    }
   },
 };
 </script>
@@ -135,6 +134,10 @@ export default {
     font-family: "Nothing You Could Do", cursive;
     font-size: 16rem;
     text-align: center;
+  }
+
+  @include large_phone {
+    display: none;
   }
 }
 
@@ -164,7 +167,6 @@ export default {
   width: 65%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
 
   @include tablet {
