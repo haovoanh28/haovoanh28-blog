@@ -93,12 +93,28 @@ export default {
   },
   async fetch() {
     const { page } = this.$route.query;
+    if (!page || page > this.totalPages) {
+      this.currentPage = 1;
+      this.$router.push({ path: "/?page=1" });
+      await this.getPostByPageAsync({
+        page: 1,
+        limit: this.limit,
+      });
+      return;
+    }
+
+    this.currentPage = Number(page);
+    await this.getPostByPageAsync({
+      page: page,
+      limit: this.limit,
+    });
+
     if (page) {
+      this.currentPage = Number(page);
       await this.getPostByPageAsync({
         page: page,
         limit: this.limit,
       });
-      console.log(this.paginatedPosts);
       return;
     } else {
       this.$router.push({ path: "/?page=1" });
@@ -108,7 +124,7 @@ export default {
       });
     }
   },
-  mounted() {
+  async mounted() {
     const text = "Hào Võ";
     let i = 0;
 
@@ -128,14 +144,26 @@ export default {
     typeWriter();
 
     const { page } = this.$route.query;
-    if (!page) {
-      this.$router.push({ path: "/?page=1" });
-    } else if (page > this.totalPages) {
+    if (!page || page > this.totalPages) {
+      await this.$router.push({ path: "/?page=1" });
+      await this.$notify({
+        type: "warn",
+        title: "Page not found",
+        text: "Redirect to home page",
+      });
+
       return;
-    } else {
-      this.currentPage = Number(page);
-      this.$router.push({ path: `/?page=${page}` });
     }
+
+    // const { page } = this.$route.query;
+    // if (!page) {
+    //   this.$router.push({ path: "/?page=1" });
+    // } else if (page > this.totalPages) {
+    //   return;
+    // } else {
+    //   this.currentPage = Number(page);
+    //   this.$router.push({ path: `/?page=${page}` });
+    // }
   },
 };
 </script>

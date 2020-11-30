@@ -17,7 +17,6 @@ export const actions = {
         title: "Success",
         text: "Account has been created successfully"
       });
-      console.log(response);
 
       return true;
     } catch (err) {

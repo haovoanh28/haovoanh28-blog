@@ -19,7 +19,6 @@ export const actions = {
         text: "Post has been deleted"
       });
 
-      console.log(response);
     } catch (err) {
       Vue.notify({
         type: "error",

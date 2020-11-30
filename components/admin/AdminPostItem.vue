@@ -38,7 +38,6 @@ export default {
       this.$router.push({ path: `/admin/post/edit/${this.post._id}` });
     },
     handleDeleteClick() {
-      console.log(this.post._id);
       this.$emit("delete-post", this.post._id);
     },
   },
