@@ -28,10 +28,6 @@ export default {
         href:
           "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap",
         rel: "stylesheet"
-      },
-      {
-        rel: "canonical",
-        href: "https://haovoanh28.herokuapp.com/?page=1"
       }
     ]
   },
@@ -68,6 +64,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/style-resources",
     "cookie-universal-nuxt",
+    ["nuxt-canonical", { baseUrl: "https://haovoanh28.herokuapp.com" }],
     "nuxt-i18n",
     [
       "nuxt-fontawesome",
