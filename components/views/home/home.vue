@@ -42,6 +42,16 @@ import { mapState, mapActions } from "vuex";
 import scrollToBody from "@/libs/helpers/scrollToBody";
 
 export default {
+  head() {
+    return {
+      link: [
+        {
+          rel: "canonical",
+          href: "https://haovoanh28.herokuapp.com/?page=" + this.currentPage,
+        },
+      ],
+    };
+  },
   data() {
     return {
       currentPage: 1,
