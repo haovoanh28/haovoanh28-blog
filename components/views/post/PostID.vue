@@ -103,6 +103,7 @@ export default {
     line-height: 1.5 !important;
     font-size: 1.6rem !important;
     letter-spacing: 1px !important;
+    margin-top: 1.5rem;
   }
 }
 

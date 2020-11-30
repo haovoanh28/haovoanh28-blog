@@ -5,14 +5,20 @@
         <input type="text" placeholder="Search posts" />
         <button><font-awesome-icon :icon="['fas', 'search']" /></button>
       </form>
+      <div class="sidebar__menu" @click="toggleMenu">
+        <!-- <font-awesome-icon :icon="['fas', 'bars']" /> -->
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-    <div class="sidebar__categories">
-      <BaseText capitalize fw800 textBig padding="1rem 0">{{
+    <div class="sidebar__categories" :class="{ 'h-29r': isMenu }">
+      <BaseText capitalize fw800 textBig padding="1rem">{{
         $t("categories.title")
       }}</BaseText>
       <ul>
         <li v-for="c in categories" :key="`category-${c}`">
-          <BaseText padding="1.2rem 0" fw600>{{
+          <BaseText padding="1.2rem 1rem" fw600>{{
             $t(`categories.${c.toLowerCase()}`)
           }}</BaseText>
         </li>
@@ -37,7 +43,17 @@ export default {
         "Algorithms",
         "Programming",
       ],
+      isMenu: false,
     };
+  },
+  methods: {
+    toggleMenu() {
+      if (this.isMenu) {
+        this.isMenu = false;
+      } else {
+        this.isMenu = true;
+      }
+    },
   },
 };
 </script>
@@ -84,12 +100,47 @@ export default {
       color: rgba(128, 128, 128, 0.5);
     }
   }
+
+  @include large_phone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    form {
+      width: 90%;
+    }
+  }
+}
+
+.sidebar__menu {
+  display: none;
+  color: gray;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid darken(gray, 10%);
+  border-radius: 3px;
+  cursor: pointer;
+
+  & div {
+    height: 2.8px;
+    width: 20px;
+    background-color: gray;
+  }
+
+  &:nth-child(1) {
+  }
+
+  @include large_phone {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 }
 
 .sidebar__categories {
-  padding: 1rem;
   background-color: lighten($light-gray, 8%);
   border-radius: 4px;
+  transition: all 0.3s linear;
 
   ul {
     list-style-type: none;
@@ -101,13 +152,12 @@ export default {
     li:not(:last-child):nth-child(even) {
       border-bottom: 1px solid lighten(gray, 30%);
     }
-
-    /* li:not(:last-child) {
-      border-bottom: 1px solid lightgray;
-    } */
   }
-}
 
-.sidebar__top-posts {
+  @include large_phone {
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
 }
 </style>
