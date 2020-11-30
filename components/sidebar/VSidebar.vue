@@ -125,8 +125,8 @@ export default {
     background-color: gray;
   }
 
-  &:nth-child(2) {
-    margin: 0.2rem 0;
+  & div:nth-child(2) {
+    margin: 0.3rem 0;
   }
 
   @include large_phone {
