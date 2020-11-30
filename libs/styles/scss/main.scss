@@ -38,8 +38,8 @@ body {
 }
 
 .invisible {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .visible {
@@ -90,4 +90,12 @@ body {
 
 .p-1r {
   padding: 1rem !important;
+}
+
+.rotate-right {
+  transform: translate(0px, 6px) rotate(45deg) !important;
+}
+
+.rotate-left {
+  transform: translate(0px, -6px) rotate(-45deg) !important;
 }

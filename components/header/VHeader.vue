@@ -28,7 +28,11 @@
     <nav class="header__nav header__nav--responsive">
       <ul>
         <li @click="toggleMenu">
-          <font-awesome-icon :icon="['fas', 'bars']" />
+          <div class="header__menu">
+            <div :class="{ 'rotate-right': isMenu }"></div>
+            <div :class="{ invisible: isMenu }"></div>
+            <div :class="{ 'rotate-left': isMenu }"></div>
+          </div>
         </li>
         <li>
           <p>Hao Vo</p>
@@ -148,6 +152,20 @@ export default {
 
   @include large_phone {
     display: block;
+  }
+}
+
+.header__menu {
+  & div {
+    height: 2.8px;
+    width: 20px;
+    background-color: white;
+    transition: all 0.3s ease-in;
+    border-radius: 3px;
+  }
+
+  & div:nth-child(2) {
+    margin: 0.3rem 0;
   }
 }
 </style>

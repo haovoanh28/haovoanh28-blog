@@ -9,6 +9,9 @@
     </template>
     <template v-else-if="post">
       <client-only>
+        <div class="post-detail__time">
+          {{ convertTime(post.createdAt) }}
+        </div>
         <div class="post-detail__title">
           <h1>{{ post.title }}</h1>
         </div>
@@ -26,6 +29,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import convertTime from "@/libs/helpers/convertTime";
 
 export default {
   name: "post-details",
@@ -38,6 +42,7 @@ export default {
     ...mapState("post/get", ["loading"]),
   },
   methods: {
+    convertTime,
     ...mapActions("post/get", ["getPostByIdAsync"]),
   },
   async fetch() {
@@ -54,11 +59,11 @@ export default {
 
 <style lang="scss">
 .post-detail {
-  width: 90%;
+  width: 60%;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 0.5rem 0 2rem 0;
 
-  & > * {
+  & > *:not(:first-child) {
     margin-top: 3rem;
   }
 
@@ -73,6 +78,24 @@ export default {
       margin-bottom: 2.5rem;
     }
   }
+
+  @include large_phone {
+    width: 70%;
+  }
+
+  @include medium_phone {
+    width: 80%;
+  }
+
+  @include small_phone {
+    width: 90%;
+  }
+}
+
+.post-detail__time {
+  color: gray;
+  text-align: right;
+  padding-top: 1.5rem;
 }
 
 .post-detail__title {
@@ -84,7 +107,7 @@ export default {
   img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
   @include medium_phone {
@@ -99,11 +122,15 @@ export default {
 }
 
 .post-detail__content {
+  h1 {
+    margin-top: 1.5rem;
+  }
+
   p {
     line-height: 1.5 !important;
     font-size: 1.6rem !important;
     letter-spacing: 1px !important;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 }
 

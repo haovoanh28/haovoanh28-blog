@@ -7,9 +7,9 @@
       </form>
       <div class="sidebar__menu" @click="toggleMenu">
         <!-- <font-awesome-icon :icon="['fas', 'bars']" /> -->
-        <div></div>
-        <div></div>
-        <div></div>
+        <div :class="{ 'rotate-right': isMenu }"></div>
+        <div :class="{ invisible: isMenu }"></div>
+        <div :class="{ 'rotate-left': isMenu }"></div>
       </div>
     </div>
     <div class="sidebar__categories" :class="{ 'h-29r': isMenu }">
@@ -123,6 +123,8 @@ export default {
     height: 2.8px;
     width: 20px;
     background-color: gray;
+    transition: all 0.3s ease-in;
+    border-radius: 3px;
   }
 
   & div:nth-child(2) {
