@@ -106,7 +106,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     form {
-      width: 90%;
+      width: 85%;
     }
   }
 }
@@ -114,10 +114,10 @@ export default {
 .sidebar__menu {
   display: none;
   color: gray;
-  padding: 0.7rem 0.9rem;
   border: 1px solid darken(gray, 10%);
   border-radius: 3px;
   cursor: pointer;
+  width: 10%;
 
   & div {
     height: 2.8px;
@@ -125,14 +125,15 @@ export default {
     background-color: gray;
   }
 
-  &:nth-child(1) {
+  &:nth-child(2) {
+    margin: 0.2rem 0;
   }
 
   @include large_phone {
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
   }
 }

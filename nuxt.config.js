@@ -15,6 +15,10 @@ export default {
       {
         name: "google-site-verification",
         content: "t_lRNuZAkV-XqmJdaF2IPa9odR8cjUyGCpUEqw1LVf0"
+      },
+      {
+        name: "google-site-verification",
+        content: "AqGOuuSwsqzM7955GhqQcq38X1L0ejGF6F4ShEexMTE"
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]

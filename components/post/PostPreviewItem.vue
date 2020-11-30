@@ -44,6 +44,7 @@ export default {
   cursor: pointer;
   border-radius: 4px;
   overflow: hidden;
+  padding-bottom: 1.5rem;
   p {
     padding: 1rem 1.5rem !important;
   }
