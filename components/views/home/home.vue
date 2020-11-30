@@ -43,6 +43,7 @@ import scrollToBody from "@/libs/helpers/scrollToBody";
 
 export default {
   head() {
+    console.log(this.currentPage);
     return {
       link: [
         {
@@ -93,21 +94,6 @@ export default {
   },
   async fetch() {
     const { page } = this.$route.query;
-    if (!page || page > this.totalPages) {
-      this.currentPage = 1;
-      this.$router.push({ path: "/?page=1" });
-      await this.getPostByPageAsync({
-        page: 1,
-        limit: this.limit,
-      });
-      return;
-    }
-
-    this.currentPage = Number(page);
-    await this.getPostByPageAsync({
-      page: page,
-      limit: this.limit,
-    });
 
     if (page) {
       this.currentPage = Number(page);
@@ -144,15 +130,20 @@ export default {
     typeWriter();
 
     const { page } = this.$route.query;
-    if (!page || page > this.totalPages) {
+
+    if (!page) {
+      this.currentPage = 1;
+      await this.$router.push({ path: "/?page=1" });
+    }
+
+    if (page > this.totalPages) {
+      this.currentPage = 1;
       await this.$router.push({ path: "/?page=1" });
       await this.$notify({
         type: "warn",
         title: "Page not found",
         text: "Redirect to home page",
       });
-
-      return;
     }
 
     // const { page } = this.$route.query;
