@@ -33,6 +33,18 @@ import convertTime from "@/libs/helpers/convertTime";
 
 export default {
   name: "post-details",
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.introduction,
+        },
+      ],
+    };
+  },
   data() {
     return {
       post: "",
