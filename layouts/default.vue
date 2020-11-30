@@ -12,6 +12,21 @@
   </div>
 </template>
 
+<script>
+export default {
+  head() {
+    return {
+      link: [
+        {
+          rel: "canonical",
+          href: "https://haovoanh28.herokuapp.com" + this.$route.path,
+        },
+      ],
+    };
+  },
+};
+</script>
+
 <style lang="scss" scoped>
 .container {
   padding-bottom: 3rem;
