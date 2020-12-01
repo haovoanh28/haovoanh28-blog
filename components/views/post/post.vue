@@ -34,7 +34,6 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import scrollToBody from "@/libs/helpers/scrollToBody";
 
 export default {
   data() {

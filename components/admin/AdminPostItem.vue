@@ -39,6 +39,7 @@ export default {
     },
     handleDeleteClick() {
       this.$emit("delete-post", this.post._id);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     },
   },
 };

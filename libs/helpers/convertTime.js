@@ -10,7 +10,9 @@ export default function(time) {
   const createdAt = new Date(time);
   const convertedTime = `${createdAt.getDate()}/${createdAt.getMonth()}/${createdAt.getFullYear()}  ${refactorTime(
     createdAt.getHours()
-  )}:${refactorTime(createdAt.getMinutes())}`;
+  )}:${refactorTime(createdAt.getMinutes())}:${refactorTime(
+    createdAt.getSeconds()
+  )}`;
 
   return convertedTime;
 }

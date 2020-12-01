@@ -7,7 +7,6 @@ export const mutations = {};
 export const actions = {
   async deletePostByIdAsync({ commit }, id) {
     try {
-      commit("post/get/SET_LOADING", null, { root: true });
       commit("post/get/SET_LOADING_ID", id, { root: true });
 
       const response = await this.$api.$delete(`/posts/${id}`);
@@ -18,7 +17,6 @@ export const actions = {
         title: "Success",
         text: "Post has been deleted"
       });
-
     } catch (err) {
       Vue.notify({
         type: "error",
@@ -27,7 +25,6 @@ export const actions = {
       });
       console.log(err);
     } finally {
-      commit("post/get/SET_LOADED", null, { root: true });
       commit("post/get/SET_LOADING_ID", "", { root: true });
     }
   }
