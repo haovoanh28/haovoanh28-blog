@@ -12,7 +12,10 @@
         <div :class="{ 'rotate-left': isMenu }"></div>
       </div>
     </div>
-    <div class="sidebar__categories" :class="{ 'h-29r': isMenu }">
+    <div
+      class="sidebar__categories"
+      :class="{ 'height-sidebar-responsive': isMenu }"
+    >
       <BaseText capitalize fw800 textBig padding="1rem">{{
         $t("categories.title")
       }}</BaseText>

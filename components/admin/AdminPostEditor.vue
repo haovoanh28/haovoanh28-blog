@@ -32,6 +32,14 @@
         :icon="['fas', 'hand-lizard']"
         v-model="$v.post.introduction.$model"
       /> -->
+
+      <div class="editor__checkbox-group">
+        <BaseCheckbox
+          v-for="type in categories"
+          :value="type"
+          :key="`checkbox-${type}`"
+        />
+      </div>
       <textarea
         :placeholder="$t('post.introduction')"
         v-model="$v.post.introduction.$model"
@@ -125,6 +133,7 @@ export default {
   },
   computed: {
     ...mapState("post/get", ["loading"]),
+    ...mapState("general", ["categories"]),
     getTitle() {
       if (this.action === "create") {
         return this.$t("post.create");
@@ -212,11 +221,24 @@ export default {
     width: 100%;
     resize: none;
     height: 10rem;
+    margin-bottom: 1rem;
   }
 }
 
 .editor__intro {
   margin-bottom: 2rem;
+}
+
+.editor__checkbox-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 10rem;
+  border-radius: 4px;
+  border: 1px solid black;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .editor__tool {
