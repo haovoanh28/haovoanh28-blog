@@ -26,11 +26,16 @@
           $t("errMessage.titleRequired")
         }}</BaseText>
       </div>
-      <BaseInput
+      <!-- <BaseInput
         :placeholder="$t('post.introduction')"
         border
         :icon="['fas', 'hand-lizard']"
         v-model="$v.post.introduction.$model"
+      /> -->
+      <textarea
+        :placeholder="$t('post.introduction')"
+        v-model="$v.post.introduction.$model"
+        spellcheck="false"
       />
       <div class="err-group" v-if="$v.post.introduction.$error">
         <BaseText errText v-if="!$v.post.introduction.required">{{
@@ -198,6 +203,16 @@ export default {
   margin: 0 auto;
   padding: 2rem 0;
   width: 80%;
+
+  & textarea {
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    padding: 1rem;
+    width: 100%;
+    resize: none;
+    height: 10rem;
+  }
 }
 
 .editor__intro {

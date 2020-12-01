@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 export default {
   data() {
@@ -93,18 +93,21 @@ export default {
           locale: "en",
         },
       ],
-      categories: [
-        "Technology",
-        "Life",
-        "Security",
-        "Algorithms",
-        "Programming",
-      ],
+      // categories: [
+      //   "Technology",
+      //   "Life",
+      //   "Security",
+      //   "Algorithms",
+      //   "Programming",
+      // ],
       lang: "",
       flagClass: "",
       isDisplay: false,
       selectedLang: "Select language",
     };
+  },
+  computed: {
+    ...mapState("general", ["categories"]),
   },
   methods: {
     ...mapActions("auth", ["updateLocaleAsync"]),

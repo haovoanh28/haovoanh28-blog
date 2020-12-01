@@ -33,18 +33,24 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   data() {
     return {
-      categories: [
-        "Technology",
-        "Life",
-        "Security",
-        "Algorithms",
-        "Programming",
-      ],
+      // categories: [
+      //   "Technology",
+      //   "Life",
+      //   "Security",
+      //   "Algorithms",
+      //   "Programming",
+      //   "Entertainment",
+      // ],
       isMenu: false,
     };
+  },
+  computed: {
+    ...mapState("general", ["categories"]),
   },
   methods: {
     toggleMenu() {

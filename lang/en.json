@@ -55,7 +55,8 @@
       "life": "Life",
       "security": "Security",
       "algorithms": "Algorithms",
-      "programming":"Programming"
+      "programming":"Programming",
+      "entertainment": "Entertainment"
    },
    "errMessage" : {
       "emailRequired" : "Email is required",

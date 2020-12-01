@@ -57,7 +57,8 @@
       "life": "Đời sống",
       "security": "Bảo mật",
       "algorithms": "Thuật toán",
-      "programming":"Lập trình"
+      "programming":"Lập trình",
+      "entertainment": "Giải trí"
    },
    "errMessage" : {
       "emailRequired" : "Địa chỉ email không được để trống",
