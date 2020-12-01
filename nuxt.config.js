@@ -96,7 +96,8 @@ export default {
               "faAt",
               "faCamera",
               "faEdit",
-              "faTrashAlt"
+              "faTrashAlt",
+              "faCaretUp"
             ]
           },
           {
@@ -151,7 +152,6 @@ export default {
       layouts: true,
       pages: true,
       commons: true
-    },
-    
+    }
   }
 };

@@ -59,6 +59,13 @@ export default {
   border-radius: 4px;
   overflow: hidden;
   padding-bottom: 1.5rem;
+  transition: all 0.3s;
+
+  &:hover,
+  &:active {
+    transform: translateY(-8px);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  }
 
   @include tablet {
     width: 100%;
