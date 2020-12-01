@@ -131,10 +131,10 @@ export default {
 
     const { page } = this.$route.query;
 
-    if (!page) {
-      this.currentPage = 1;
-      await this.$router.push({ path: "/?page=1" });
-    }
+    // if (!page) {
+    //   this.currentPage = 1;
+    //   await this.$router.push({ path: "/?page=1" });
+    // }
 
     if (page > this.totalPages) {
       this.currentPage = 1;
