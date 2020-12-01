@@ -9,7 +9,7 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "haovoanh28 là trang web cá nhân của Võ Anh Hào. Dùng để ghi lại những gì mình thích. Trang web bao gồm nhiều lĩnh vực như khoa học - công nghệ, văn hóa - đời sống, thuật toán - lập trình, tâm linh - bí ẩn"
+          "haovoanh28 là trang web cá nhân của Võ Anh Hào. Dùng để chia sẻ kiến thức và ghi lại những gì mình thích"
       },
       { name: "author", content: "haovoanh28 - Võ Anh Hào" },
       {
