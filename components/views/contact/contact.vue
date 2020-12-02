@@ -122,6 +122,10 @@ export default {
   text-transform: uppercase;
   text-align: center;
   padding: 1.5rem 0;
+
+  @include small_phone {
+    font-size: 2.5rem;
+  }
 }
 
 .contact__body {
