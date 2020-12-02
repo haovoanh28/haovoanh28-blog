@@ -13,6 +13,11 @@ export default {
       },
       { name: "author", content: "haovoanh28 - Võ Anh Hào" },
       {
+        name: "keywords",
+        content:
+          "haovoanh28, haovoanh28@gmail.com, Võ Anh Hào, Vo Anh Hao, Hao Vo"
+      },
+      {
         name: "google-site-verification",
         content: "t_lRNuZAkV-XqmJdaF2IPa9odR8cjUyGCpUEqw1LVf0"
       },
