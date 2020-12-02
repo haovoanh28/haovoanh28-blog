@@ -44,7 +44,7 @@
               {{ $t("errMessage.questionContentRequired") }}
             </BaseText>
           </div>
-          <BaseButton w100>Send</BaseButton>
+          <BaseButton w100 :loading="loading">Send</BaseButton>
         </form>
       </div>
     </div>
@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
@@ -62,8 +63,12 @@ export default {
       content: "",
     };
   },
+  computed: {
+    ...mapState("sendMail", ["loading"]),
+  },
   methods: {
-    handleSendQuestion() {
+    ...mapActions("sendMail", ["sendMailAsync"]),
+    async handleSendQuestion() {
       this.$v.$touch();
 
       if (this.$v.$error || this.$v.$invalid) {
@@ -72,9 +77,20 @@ export default {
           title: "Failed",
           text: "Please correct the form",
         });
-
         return;
       }
+
+      await this.sendMailAsync({
+        from: this.email,
+        question: this.question,
+        content: this.content,
+      });
+
+      for (let key in this.$data) {
+        this.$data[key] = "";
+      }
+
+      this.$v.$reset();
     },
   },
   validations: {
@@ -96,6 +112,10 @@ export default {
 .contact {
   width: 80%;
   margin: 0 auto;
+
+  @include medium_phone {
+    width: 90%;
+  }
 }
 
 .contact__title {
@@ -108,6 +128,10 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-top: 3rem;
+
+  @include tablet {
+    justify-content: center;
+  }
 }
 
 .contact__image {
@@ -117,6 +141,10 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  @include tablet {
+    display: none;
   }
 }
 
@@ -132,6 +160,18 @@ export default {
     resize: none;
     padding: 1rem;
     margin-bottom: 0.5rem;
+  }
+
+  @include large_phone {
+    width: 80%;
+  }
+
+  @include medium_phone {
+    width: 90%;
+  }
+
+  @include small_phone {
+    width: 100%;
   }
 }
 </style>

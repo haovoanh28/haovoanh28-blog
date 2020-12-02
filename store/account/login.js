@@ -48,12 +48,14 @@ export const actions = {
         }, 1000);
       }
     } catch (err) {
-      console.log(err.response);
-      this.$notify({
-        type: "error",
-        title: "Failed",
-        text: err.response.data.message
-      });
+      console.log(err);
+      if (err.response) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: err.response.data.message
+        });
+      }
     } finally {
       commit("SET_LOADED");
     }
