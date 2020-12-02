@@ -18,7 +18,10 @@ export default {
   methods: {
     handleInputChange(e) {
       if (e.target.checked) {
-        console.log(e.target.value);
+        // console.log(e.target.value);
+        this.$emit("select-type", e.target.value);
+      } else {
+        this.$emit("unselect-type", e.target.value);
       }
     },
   },
@@ -27,5 +30,6 @@ export default {
 
 <style lang="scss" scoped>
 .checkbox {
+  margin-right: 1rem;
 }
 </style>

@@ -38,6 +38,7 @@
           v-for="type in categories"
           :value="type"
           :key="`checkbox-${type}`"
+          @select-type="handleSelectType"
         />
       </div>
       <textarea
@@ -123,6 +124,7 @@ export default {
         introduction: "",
         title: "",
       },
+      postTypes: [],
     };
   },
   components: {
@@ -178,6 +180,10 @@ export default {
       this.editPostByIdAsync(this.post);
       this.clearForm();
       this.$v.$reset();
+    },
+    handleSelectType(e) {
+      console.log(e);
+      this.postTypes.push(e);
     },
   },
   validations: {
@@ -239,6 +245,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
+
+  &::after {
+    content: "";
+    flex: auto;
+  }
 }
 
 .editor__tool {
