@@ -73,6 +73,8 @@
       "coverImgRequired": "Cover image is required",
       "titleRequired": "Title is required",
       "introductionRequired": "Introduction is required",
-      "contentRequired": "Content is required"
+      "contentRequired": "Content is required",
+      "questionTitleRequired": "Question title is required",
+      "questionContentRequired": "Question content is required"
    }
 }

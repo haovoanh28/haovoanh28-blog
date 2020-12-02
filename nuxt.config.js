@@ -97,7 +97,12 @@ export default {
               "faCamera",
               "faEdit",
               "faTrashAlt",
-              "faCaretUp"
+              "faCaretUp",
+              "faGamepad",
+              "faMusic",
+              "faLaptopCode",
+              "faMicrochip",
+              "faQuestion"
             ]
           },
           {

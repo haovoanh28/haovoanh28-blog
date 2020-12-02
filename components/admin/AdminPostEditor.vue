@@ -39,7 +39,9 @@
           :value="type"
           :key="`checkbox-${type}`"
           @select-type="handleSelectType"
+          @unselect-type="handleUnselectType"
         />
+        {{ postTypes }}
       </div>
       <textarea
         :placeholder="$t('post.introduction')"
@@ -185,6 +187,11 @@ export default {
       console.log(e);
       this.postTypes.push(e);
     },
+    handleUnselectType(type) {
+      console.log("unselect", type);
+      const index = this.postTypes.findIndex((postType) => postType === type);
+      this.postTypes.splice(index, 1);
+    },
   },
   validations: {
     post: {
@@ -246,9 +253,11 @@ export default {
   justify-content: space-between;
   padding: 0 1rem;
 
-  &::after {
-    content: "";
-    flex: auto;
+  @include large_phone {
+    &::after {
+      content: "";
+      flex: auto;
+    }
   }
 }
 

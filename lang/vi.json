@@ -75,6 +75,8 @@
       "coverImgRequired": "Ảnh bìa không được để trống",
       "titleRequired": "Tiêu đề không được để trống",
       "introductionRequired": "Tóm tắt không được để trống",
-      "contentRequired": "Nội dung không được để trống"
+      "contentRequired": "Nội dung không được để trống",
+      "questionTitleRequired": "Tiêu đề câu hỏi không được để trống",
+      "questionContentRequired": "Nội dung câu hỏi không được để trống"
    }
 }

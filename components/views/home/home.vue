@@ -40,10 +40,10 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import scrollToBody from "@/libs/helpers/scrollToBody";
+import typeWriter from "@/libs/helpers/typeWriter";
 
 export default {
   head() {
-    console.log(this.currentPage);
     return {
       link: [
         {
@@ -116,45 +116,14 @@ export default {
 
     const home__name = document.getElementsByClassName("home__name")[0];
 
-    const typeWriter = () => {
-      if (i < text.length && home__name) {
-        document.getElementsByClassName(
-          "home__name"
-        )[0].innerHTML += text.charAt(i);
-        i++;
-      }
-
-      setTimeout(typeWriter, 150);
-    };
-
-    typeWriter();
+    typeWriter(text, home__name);
 
     const { page } = this.$route.query;
-
-    // if (!page) {
-    //   this.currentPage = 1;
-    //   await this.$router.push({ path: "/?page=1" });
-    // }
 
     if (page > this.totalPages) {
       this.currentPage = 1;
       await this.$router.push({ path: "/?page=1" });
-      await this.$notify({
-        type: "warn",
-        title: "Page not found",
-        text: "Redirect to home page",
-      });
     }
-
-    // const { page } = this.$route.query;
-    // if (!page) {
-    //   this.$router.push({ path: "/?page=1" });
-    // } else if (page > this.totalPages) {
-    //   return;
-    // } else {
-    //   this.currentPage = Number(page);
-    //   this.$router.push({ path: `/?page=${page}` });
-    // }
   },
 };
 </script>

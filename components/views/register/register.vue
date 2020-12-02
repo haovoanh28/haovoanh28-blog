@@ -42,7 +42,7 @@
         <BaseText errText v-if="!$v.email.required">{{
           $t("errMessage.emailRequired")
         }}</BaseText>
-        <BaseText errText v-if="!$v.email.between"
+        <BaseText errText v-if="!$v.email.email"
           >{{ $t("errMessage.emailCheck") }}
         </BaseText>
       </div>
