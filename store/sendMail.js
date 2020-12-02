@@ -19,8 +19,9 @@ export const actions = {
   async sendMailAsync({ commit }, { from, question, content }) {
     try {
       commit("SET_LOADING");
-      const response = await this.$api.post("/send-email", {
+      await this.$api.post("/send-email", {
         from,
+        
         question,
         content
       });
