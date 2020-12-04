@@ -89,7 +89,7 @@ export default {
 
   @include large_phone {
     min-height: 100vh;
-    margin-left: -25%;
+    margin-left: -45%;
     width: 45%;
     opacity: 1;
     visibility: visible;
@@ -98,7 +98,7 @@ export default {
 
   @include medium_phone {
     width: 55%;
-    margin-left: -40%;
+    margin-left: -55%;
   }
 
   @include small_phone {
