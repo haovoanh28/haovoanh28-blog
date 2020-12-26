@@ -150,6 +150,17 @@ export default {
 .header__nav--responsive {
   display: none;
 
+  ul {
+    li {
+      flex: 1;
+
+      &:nth-child(2) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
   @include large_phone {
     display: block;
   }

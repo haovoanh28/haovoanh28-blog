@@ -41,7 +41,6 @@
           @select-type="handleSelectType"
           @unselect-type="handleUnselectType"
         />
-        {{ postTypes }}
       </div>
       <textarea
         :placeholder="$t('post.introduction')"
@@ -123,10 +122,10 @@ export default {
       post: {
         content: "",
         coverImg: "",
+        postTypes: [],
         introduction: "",
         title: "",
       },
-      postTypes: [],
     };
   },
   components: {
@@ -168,6 +167,9 @@ export default {
     },
     clearForm() {
       for (const key in this.post) {
+        if (key == "postTypes") {
+          continue;
+        }
         this.post[key] = "";
       }
     },
@@ -185,7 +187,7 @@ export default {
     },
     handleSelectType(e) {
       console.log(e);
-      this.postTypes.push(e);
+      this.post.postTypes.push(e);
     },
     handleUnselectType(type) {
       console.log("unselect", type);
