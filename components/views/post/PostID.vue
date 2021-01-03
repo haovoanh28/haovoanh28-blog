@@ -4,7 +4,10 @@
       <content-placeholders>
         <content-placeholders-heading />
         <content-placeholders-img />
-        <content-placeholders-text :lines="6" />
+        <content-placeholders-heading />
+        <content-placeholders-text :lines="16" />
+        <content-placeholders-heading />
+        <content-placeholders-text :lines="16" />
       </content-placeholders>
     </template>
     <template v-else-if="post">

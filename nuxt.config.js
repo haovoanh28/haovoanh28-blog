@@ -107,7 +107,8 @@ export default {
               "faMusic",
               "faLaptopCode",
               "faMicrochip",
-              "faQuestion"
+              "faQuestion",
+              "faSpinner"
             ]
           },
           {
@@ -146,7 +147,8 @@ export default {
     scss: [
       "~/libs/styles/scss/_colors.scss",
       "~/libs/styles/scss/_mixins.scss",
-      "~/libs/styles/scss/_variables.scss"
+      "~/libs/styles/scss/_variables.scss",
+      "~/libs/styles/scss/_keyframes.scss"
     ]
   },
   vue: {

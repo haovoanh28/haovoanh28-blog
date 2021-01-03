@@ -2,8 +2,13 @@
   <div class="sidebar">
     <div class="sidebar__search">
       <form>
-        <input type="text" placeholder="Search posts" />
-        <button><font-awesome-icon :icon="['fas', 'search']" /></button>
+        <input type="text" placeholder="Search posts" v-model="searchString" />
+        <button class="loading-btn" v-if="loading">
+          <font-awesome-icon :icon="['fas', 'spinner']" />
+        </button>
+        <button @click.prevent="handleSearch" v-else>
+          <font-awesome-icon :icon="['fas', 'search']" />
+        </button>
       </form>
       <div class="sidebar__menu" @click="toggleMenu">
         <!-- <font-awesome-icon :icon="['fas', 'bars']" /> -->
@@ -36,32 +41,47 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      // categories: [
-      //   "Technology",
-      //   "Life",
-      //   "Security",
-      //   "Algorithms",
-      //   "Programming",
-      //   "Entertainment",
-      // ],
       isMenu: false,
+      searchString: "",
     };
   },
   computed: {
     ...mapState("general", ["categories"]),
+    ...mapState("post/search", ["loading"]),
   },
   methods: {
+    ...mapActions("post/search", ["searchPostAsync"]),
     toggleMenu() {
       if (this.isMenu) {
         this.isMenu = false;
       } else {
         this.isMenu = true;
       }
+    },
+    handleSearch() {
+      const routeName = this.$route.name;
+      if (routeName === "search") {
+        this.$router.replace({
+          path: "/search",
+          query: {
+            searchString: this.searchString,
+          },
+        });
+        return;
+      }
+
+      this.$router.push({
+        path: "/search",
+        query: {
+          searchString: this.searchString,
+        },
+      });
+      // this.searchPostAsync(this.searchString);
     },
   },
 };
@@ -171,5 +191,9 @@ export default {
     overflow: hidden;
     padding: 0;
   }
+}
+
+.fa-spinner {
+  animation: spinner 1s linear infinite;
 }
 </style>

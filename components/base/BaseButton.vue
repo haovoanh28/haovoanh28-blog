@@ -110,10 +110,4 @@ export default {
 .fa-cog {
   animation: spinner 1s linear infinite;
 }
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
 </style>
