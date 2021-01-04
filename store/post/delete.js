@@ -18,11 +18,14 @@ export const actions = {
         text: "Post has been deleted"
       });
     } catch (err) {
-      Vue.notify({
-        type: "error",
-        title: "Error",
-        text: `${err.response}`
-      });
+      console.log(err);
+      if (err.response) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: err.response.data.message
+        });
+      }
       console.log(err);
     } finally {
       commit("post/get/SET_LOADING_ID", "", { root: true });
