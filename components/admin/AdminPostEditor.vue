@@ -186,13 +186,13 @@ export default {
       this.$v.$reset();
     },
     handleSelectType(e) {
-      console.log(e);
       this.post.postTypes.push(e);
     },
     handleUnselectType(type) {
-      console.log("unselect", type);
-      const index = this.postTypes.findIndex((postType) => postType === type);
-      this.postTypes.splice(index, 1);
+      const index = this.post.postTypes.findIndex(
+        (postType) => postType === type
+      );
+      this.post.postTypes.splice(index, 1);
     },
   },
   validations: {
