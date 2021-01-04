@@ -30,12 +30,12 @@
       "signOut":"Sign Out"
    },
    "post": {
-      "create": "create a post",
+      "create": "create new post",
       "edit": "edit a post",
       "coverImg": "Cover image url",
       "title": "Post title",
       "introduction": "Introduction",
-      "createBtn": "Create post",
+      "createBtn": "Create new post",
       "editBtn": "commit changes"
 
    },
@@ -75,6 +75,7 @@
       "introductionRequired": "Introduction is required",
       "contentRequired": "Content is required",
       "questionTitleRequired": "Question title is required",
-      "questionContentRequired": "Question content is required"
+      "questionContentRequired": "Question content is required",
+      "postTypesRequired": "Types are required"
    }
 }

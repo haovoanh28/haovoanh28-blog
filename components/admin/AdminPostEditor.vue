@@ -26,21 +26,18 @@
           $t("errMessage.titleRequired")
         }}</BaseText>
       </div>
-      <!-- <BaseInput
-        :placeholder="$t('post.introduction')"
-        border
-        :icon="['fas', 'hand-lizard']"
-        v-model="$v.post.introduction.$model"
-      /> -->
-
       <div class="editor__checkbox-group">
         <BaseCheckbox
           v-for="type in categories"
-          :value="type"
+          :type="type"
           :key="`checkbox-${type}`"
-          @select-type="handleSelectType"
-          @unselect-type="handleUnselectType"
+          v-model="post.postTypes"
         />
+      </div>
+      <div class="err-group" v-if="$v.post.postTypes.$error">
+        <BaseText errText v-if="!$v.post.postTypes.required">{{
+          $t("errMessage.postTypesRequired")
+        }}</BaseText>
       </div>
       <textarea
         :placeholder="$t('post.introduction')"
@@ -168,6 +165,8 @@ export default {
     clearForm() {
       for (const key in this.post) {
         if (key == "postTypes") {
+          this.post.postTypes = [];
+          console.log("asdsa");
           continue;
         }
         this.post[key] = "";
@@ -185,15 +184,6 @@ export default {
       this.clearForm();
       this.$v.$reset();
     },
-    handleSelectType(e) {
-      this.post.postTypes.push(e);
-    },
-    handleUnselectType(type) {
-      const index = this.post.postTypes.findIndex(
-        (postType) => postType === type
-      );
-      this.post.postTypes.splice(index, 1);
-    },
   },
   validations: {
     post: {
@@ -207,6 +197,9 @@ export default {
         required,
       },
       introduction: {
+        required,
+      },
+      postTypes: {
         required,
       },
     },

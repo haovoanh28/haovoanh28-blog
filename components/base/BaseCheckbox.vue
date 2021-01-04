@@ -2,27 +2,32 @@
   <div class="checkbox">
     <input
       type="checkbox"
-      :id="value"
+      :id="type"
       @change="handleInputChange"
-      :value="value"
+      :value="type"
+      :checked="value.includes(type)"
     />
-    <label :for="value">{{ value }}</label>
+    <label :for="type">{{ type }}</label>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    value: String,
+    type: String,
+    value: Array,
   },
   methods: {
     handleInputChange(e) {
+      let currentCheckedTypes = [...this.value];
       if (e.target.checked) {
-        // console.log(e.target.value);
-        this.$emit("select-type", e.target.value);
+        currentCheckedTypes.push(e.target.value);
       } else {
-        this.$emit("unselect-type", e.target.value);
+        currentCheckedTypes = currentCheckedTypes.filter(
+          (type) => type !== e.target.value
+        );
       }
+      this.$emit("input", currentCheckedTypes);
     },
   },
 };
@@ -31,5 +36,9 @@ export default {
 <style lang="scss" scoped>
 .checkbox {
   margin-right: 1rem;
+
+  label {
+    text-transform: capitalize;
+  }
 }
 </style>
