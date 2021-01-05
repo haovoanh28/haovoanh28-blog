@@ -21,7 +21,6 @@ export const actions = {
       commit("SET_LOADING");
       await this.$api.post("/send-email", {
         from,
-        
         question,
         content
       });
@@ -33,11 +32,13 @@ export const actions = {
       });
     } catch (err) {
       console.log(err);
-      Vue.notify({
-        type: "error",
-        title: "Error",
-        text: `${err.response}`
-      });
+      if (err.response) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: err.response.data.message
+        });
+      }
     } finally {
       commit("SET_LOADED");
     }

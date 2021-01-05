@@ -61,11 +61,13 @@ export const actions = {
       commit("SET_TOTAL_PAGES", totalPages);
     } catch (err) {
       console.log(err);
-      Vue.notify({
-        type: "error",
-        title: "Error",
-        text: `${err.response}`
-      });
+      if (err.response) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: err.response.data.message
+        });
+      }
     } finally {
       commit("SET_LOADED");
     }
@@ -76,7 +78,13 @@ export const actions = {
       const response = await this.$api.$get(`/posts/${id}`);
       return response.data;
     } catch (err) {
-      console.log(err);
+      if (err.response) {
+        this.$notify({
+          type: "error",
+          title: "Failed",
+          text: err.response.data.message
+        });
+      }
     } finally {
       commit("SET_LOADED");
     }
