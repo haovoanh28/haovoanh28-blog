@@ -103,7 +103,7 @@ export default {
 
   @include small_phone {
     width: 70%;
-    margin-left: -60%;
+    margin-left: -70%;
   }
 }
 
