@@ -79,7 +79,7 @@ export default {
   padding: 0.5rem 0 2rem 0;
 
   & > *:not(:first-child) {
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .vue-content-placeholders {
