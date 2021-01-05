@@ -1,43 +1,5 @@
 <template>
   <div class="about">
-    <!-- <h1 class="about__title">About me</h1>
-    <div class="about__intro">
-      <div class="about__intro-image">
-        <img
-          src="https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=363&q=80"
-          alt="intro img"
-        />
-      </div>
-      <div class="about__intro-content">
-        <div>
-          <span>Name :</span>
-          <span>{{ name }}</span>
-        </div>
-        <div>
-          <span>Introduction : </span>
-          <span>{{ introduction }}</span>
-        </div>
-        <div>
-          <span>Interest : </span>
-          <span>{{ interest }}</span>
-        </div>
-        <div>
-          <span>Competences : </span>
-          <span>{{ competences }}</span>
-        </div>
-        <div>
-          <span>Frameworks : </span>
-          <span>{{ frameworks }}</span>
-        </div>
-        <div>
-          <span>Email : </span>
-          <span>{{ email }}</span>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- version 2 -->
-    <div class="about__name"></div>
     <div class="about__introduction">
       <h2>Introduction</h2>
       <div class="about__introduction-body">
@@ -137,8 +99,6 @@
 </template>
 
 <script>
-import typeWriter from "@/libs/helpers/typeWriter";
-
 export default {
   head() {
     return {
@@ -159,12 +119,6 @@ export default {
         "I'm a senior student at HUFI. I have a passionate on developing softwares to meet user's needs. My goal is to become a full-stack developer. I write this blog to share my knowledges and my interests to other people, hope it will be helpful.",
     };
   },
-  mounted() {
-    const text = `Hi, I'm Hao`;
-    const element = document.querySelector(".about__name");
-
-    typeWriter(text, element);
-  },
 };
 </script>
 
@@ -172,7 +126,7 @@ export default {
 .about {
   width: 80%;
   margin: 0 auto;
-
+  padding-top: 2rem;
   & div {
     margin-bottom: 2rem;
 
@@ -184,15 +138,6 @@ export default {
   @include medium_phone {
     width: 90%;
   }
-}
-
-.about__name {
-  background-color: white;
-  padding: 3rem;
-  font-size: 6rem;
-  text-align: center;
-  min-height: 14rem;
-  letter-spacing: 3px;
 }
 
 .about__introduction {
