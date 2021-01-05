@@ -144,7 +144,7 @@ export default {
   p {
     line-height: 1.5 !important;
     font-size: 1.6rem !important;
-    letter-spacing: 1px !important;
+    letter-spacing: 0.7px !important;
     margin-top: 1rem;
   }
 }
