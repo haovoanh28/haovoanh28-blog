@@ -19,13 +19,11 @@ export const mutations = {
 
 export const actions = {
   async searchPostAsync({ commit }, searchString) {
-    console.log(searchString);
     try {
       commit("SET_LOADING");
       const response = await this.$api.$get(
         `/posts/search?string=${searchString}`
       );
-      console.log(response);
       commit("SET_SEARCHED_POSTS", response.data);
     } catch (err) {
       commit("SET_SEARCHED_POSTS", []);
