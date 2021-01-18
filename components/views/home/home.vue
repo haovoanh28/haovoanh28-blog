@@ -111,7 +111,8 @@ export default {
     }
   },
   async mounted() {
-    const text = "Hào Võ";
+    // const text = "Hào Võ";
+    const text = "Fix the cause, not the symptom";
     let i = 0;
 
     const home__name = document.getElementsByClassName("home__name")[0];
@@ -134,10 +135,10 @@ export default {
   width: 100%;
   min-height: 25rem;
   background-color: $white;
-  padding: 2rem 0;
+  padding: 1rem 2rem;
   p {
     font-family: "Nothing You Could Do", cursive;
-    font-size: 16rem;
+    font-size: 10rem;
     text-align: center;
   }
 
