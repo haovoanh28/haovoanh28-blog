@@ -6,7 +6,7 @@ export default function(text, element) {
       i++;
     }
 
-    setTimeout(typeWriter, 150);
+    setTimeout(typeWriter, 100);
   };
 
   typeWriter();
