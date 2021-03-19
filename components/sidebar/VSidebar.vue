@@ -26,7 +26,11 @@
       }}</BaseText>
       <ul>
         <li v-for="c in categories" :key="`category-${c}`">
-          <BaseText padding="1.2rem 1rem" fw600>{{ c.toLowerCase() }}</BaseText>
+          <BaseText padding="1.2rem 1rem" fw600
+            >{{ $t(`categories.${c.toLowerCase()}`) }} ({{
+              typesCount[c] ? typesCount[c] : 0
+            }})</BaseText
+          >
         </li>
       </ul>
     </div>
@@ -82,6 +86,9 @@ export default {
       });
       // this.searchPostAsync(this.searchString);
     },
+  },
+  created() {
+    console.log(this.typesCount);
   },
 };
 </script>
