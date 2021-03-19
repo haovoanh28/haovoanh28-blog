@@ -26,11 +26,7 @@
       }}</BaseText>
       <ul>
         <li v-for="c in categories" :key="`category-${c}`">
-          <BaseText padding="1.2rem 1rem" fw600
-            >{{ c.toLowerCase() }} ({{
-              typesCount[c] ? typesCount[c] : 0
-            }})</BaseText
-          >
+          <BaseText padding="1.2rem 1rem" fw600>{{ c.toLowerCase() }}</BaseText>
         </li>
       </ul>
     </div>
