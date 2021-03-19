@@ -24,16 +24,14 @@
       <BaseText capitalize fw800 textBig padding="1rem">{{
         $t("categories.title")
       }}</BaseText>
-      <ul>
-        <client-only>
-          <li v-for="c in categories" :key="`category-${c}`">
-            <BaseText padding="1.2rem 1rem" fw600
-              >{{ $t(`categories.${c.toLowerCase()}`) }} ({{
-                typesCount[c] ? typesCount[c] : 0
-              }})</BaseText
-            >
-          </li>
-        </client-only>
+      <ul v-if="!!typesCount">
+        <li v-for="c in categories" :key="`category-${c}`">
+          <BaseText padding="1.2rem 1rem" fw600
+            >{{ $t(`categories.${c.toLowerCase()}`) }} ({{
+              typesCount[c] ? typesCount[c] : 0
+            }})</BaseText
+          >
+        </li>
       </ul>
     </div>
     <!-- <div class="sidebar__top-posts">
