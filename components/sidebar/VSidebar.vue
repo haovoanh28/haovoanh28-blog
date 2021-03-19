@@ -24,7 +24,7 @@
       <BaseText capitalize fw800 textBig padding="1rem">{{
         $t("categories.title")
       }}</BaseText>
-      <ul v-if="typesCount">
+      <ul>
         <li v-for="c in categories" :key="`category-${c}`">
           <BaseText padding="1.2rem 1rem" fw600
             >{{ $t(`categories.${c.toLowerCase()}`) }} ({{
@@ -86,9 +86,6 @@ export default {
       });
       // this.searchPostAsync(this.searchString);
     },
-  },
-  mounted() {
-    console.log(this.typesCount);
   },
 };
 </script>
