@@ -27,7 +27,7 @@
       <ul>
         <li v-for="c in categories" :key="`category-${c}`">
           <BaseText padding="1.2rem 1rem" fw600
-            >{{ $c.toLowerCase() }} ({{
+            >{{ c.toLowerCase() }} ({{
               typesCount[c] ? typesCount[c] : 0
             }})</BaseText
           >
