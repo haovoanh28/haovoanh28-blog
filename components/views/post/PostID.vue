@@ -25,14 +25,18 @@
           <div class="post-detail__content" v-html="post.content"></div>
         </div>
       </client-only>
+      <post-comment />
     </template>
-    <h1 v-else>Post not found</h1>
+    <template v-else>
+      <h1>Post not found</h1>
+    </template>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 import convertTime from "@/libs/helpers/convertTime";
+import PostComment from "./PostComment.vue";
 
 export default {
   name: "post-details",
@@ -47,6 +51,9 @@ export default {
         },
       ],
     };
+  },
+  components: {
+    PostComment,
   },
   data() {
     return {
@@ -72,7 +79,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .post-detail {
   width: 60%;
   margin: 0 auto;

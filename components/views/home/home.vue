@@ -65,6 +65,7 @@ export default {
       "totalPages",
       "notFound",
       "loading",
+      "typesCount",
     ]),
   },
   methods: {
@@ -135,7 +136,8 @@ export default {
   width: 100%;
   min-height: 25rem;
   background-color: $white;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 2.5rem 2rem;
+  /* border-bottom: 0.5px solid $primary-color; */
   p {
     font-family: "Nothing You Could Do", cursive;
     font-size: 10rem;

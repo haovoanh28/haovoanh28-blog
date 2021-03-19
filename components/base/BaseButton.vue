@@ -93,7 +93,7 @@ export default {
 }
 
 .btn--1 {
-  background-color: $black;
+  background-color: $primary-color;
   color: $white;
 }
 

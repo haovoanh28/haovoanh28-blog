@@ -7,6 +7,3 @@ export default {
   layout: "admin",
 };
 </script>
-
-<styl>
-</styl>

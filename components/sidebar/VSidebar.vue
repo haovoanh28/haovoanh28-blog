@@ -26,9 +26,11 @@
       }}</BaseText>
       <ul>
         <li v-for="c in categories" :key="`category-${c}`">
-          <BaseText padding="1.2rem 1rem" fw600>{{
-            $t(`categories.${c.toLowerCase()}`)
-          }}</BaseText>
+          <BaseText padding="1.2rem 1rem" fw600
+            >{{ $t(`categories.${c.toLowerCase()}`) }} ({{
+              typesCount[c] ? typesCount[c] : 0
+            }})</BaseText
+          >
         </li>
       </ul>
     </div>
@@ -53,6 +55,7 @@ export default {
   computed: {
     ...mapState("general", ["categories"]),
     ...mapState("post/search", ["loading"]),
+    ...mapState("post/get", ["typesCount"]),
   },
   methods: {
     ...mapActions("post/search", ["searchPostAsync"]),
@@ -105,7 +108,7 @@ export default {
 .sidebar__search {
   form {
     width: 100%;
-    border: 1px solid gray;
+    border: 1px solid $primary-color;
     border-radius: 5rem;
     overflow: hidden;
     display: flex;
@@ -170,9 +173,10 @@ export default {
 }
 
 .sidebar__categories {
-  background-color: lighten($light-gray, 8%);
+  background-color: lighten($white, 8%);
   border-radius: 4px;
   transition: all 0.3s linear;
+  border: 1px solid $primary-color;
 
   ul {
     list-style-type: none;

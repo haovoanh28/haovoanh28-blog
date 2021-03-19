@@ -52,7 +52,7 @@ export default {
 
   &--active {
     color: white;
-    background-color: $black;
+    background-color: $primary-color;
   }
 }
 </style>

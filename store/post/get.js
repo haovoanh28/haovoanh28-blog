@@ -5,7 +5,8 @@ export const state = () => {
     totalPages: 0,
     loading: false,
     loadingId: "",
-    notFound: false
+    notFound: false,
+    typesCount: {}
   };
 };
 
@@ -34,6 +35,9 @@ export const mutations = {
   },
   SET_NOT_FOUND(state, payload) {
     state.notFound = payload;
+  },
+  SET_TYPES_COUNT(state, payload) {
+    state.typesCount = payload;
   }
 };
 
@@ -55,10 +59,11 @@ export const actions = {
       const response = await this.$api.get(
         `/posts/pages/?page=${page}&limit=${limit}`
       );
-      const { posts, totalPages } = response.data.data;
+      const { posts, totalPages, typesCount } = response.data.data;
 
       commit("SET_PAGINATED_POSTS", posts);
       commit("SET_TOTAL_PAGES", totalPages);
+      commit("SET_TYPES_COUNT", typesCount);
     } catch (err) {
       console.log(err);
       if (err.response) {

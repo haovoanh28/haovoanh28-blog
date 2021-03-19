@@ -1,6 +1,5 @@
 export default function({ $axios, store }, inject) {
-  const baseURL =
-    process.env.baseURL || "https://haoblog-api.herokuapp.com/api/v1/";
+  const baseURL = process.env.baseURL;
 
   const api = $axios.create({ baseURL: baseURL });
   api.interceptors.request.use(

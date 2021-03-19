@@ -28,7 +28,7 @@ export default {
 <style lang="scss">
 .admin__header {
   min-width: 100%;
-  background-color: $black;
+  background-color: $primary-color;
   padding: 1.5rem;
   color: $white;
   display: none;

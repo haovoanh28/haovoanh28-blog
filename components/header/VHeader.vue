@@ -66,11 +66,9 @@ export default {
 .header {
   width: 100%;
   height: 6rem;
-  background-color: $black;
+  background-color: $primary-color;
   display: flex;
   @include flex_center;
-  position: sticky;
-  top: 0;
   z-index: 100;
 }
 

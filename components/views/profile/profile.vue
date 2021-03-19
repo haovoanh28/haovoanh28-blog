@@ -178,7 +178,7 @@ export default {
     z-index: 2;
     color: $white;
     padding: 0.5rem;
-    background-color: $black;
+    background-color: $primary-color;
     border-radius: 50%;
     cursor: pointer;
   }

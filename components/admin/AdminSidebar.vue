@@ -107,7 +107,7 @@ export default {
 
 .admin__sidebar {
   min-height: 100vh;
-  background-color: $black;
+  background-color: $primary-color;
   width: 20%;
   color: white;
   position: fixed;
@@ -170,7 +170,7 @@ export default {
         display: block;
         height: 100%;
         width: 98%;
-        background: linear-gradient(to right, $white 50%, $black 50%);
+        background: linear-gradient(to right, $white 50%, $primary-color 50%);
         background-size: 201% 100%;
         background-position: right bottom;
         transition: all 0.3s;
