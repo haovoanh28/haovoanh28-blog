@@ -201,9 +201,9 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid $primary-color;
     border-radius: 5px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 2px rgba(146, 106, 166, 0.5);
     svg {
       font-size: 5rem;
     }

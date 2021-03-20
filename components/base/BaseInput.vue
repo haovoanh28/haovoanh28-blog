@@ -74,6 +74,6 @@ export default {
 }
 
 .input-border {
-  border: 1px solid black;
+  border: 1px solid $primary-color;
 }
 </style>

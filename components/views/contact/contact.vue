@@ -36,8 +36,9 @@
             }}</BaseText>
           </div>
           <textarea
-            placeholder="Your content"
+            placeholder="Type in your message"
             v-model="$v.content.$model"
+            style="border: 1px solid #926aa6"
           ></textarea>
           <div class="err-group" v-if="$v.content.$error">
             <BaseText errText v-if="!$v.content.required">
