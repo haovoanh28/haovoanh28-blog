@@ -14,7 +14,7 @@
    "sidebar": {
       "search": "Tìm kiếm",
       "home": "Trang chủ",
-      "about": "Về tôi",
+      "about": "Giới thiệu",
       "task": "Quản lý công việc",
       "editProfile": "Thông tin cá nhân",
       "register": "Đăng ký",
@@ -25,7 +25,7 @@
    },
    "adminSidebar": {
       "overview":"Tổng quan",
-      "post":"Post",
+      "post":"Bài viết",
       "home":"Trang chủ",
       "editProfile": "Chỉnh sửa",
       "register": "Đăng ký",
@@ -49,7 +49,7 @@
       "fullName": "Tên đầy đủ",
       "usefullLinks": "Chuyển trang",
       "clear": "Hủy",
-      "noPost": "Không tìm thấy các bài post"
+      "noPost": "Không tìm thấy các bài viết"
    },
    "categories": {
       "title":"Thể loại",

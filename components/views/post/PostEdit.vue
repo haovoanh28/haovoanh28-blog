@@ -4,7 +4,6 @@
 
 <script>
 import Editor from "@tinymce/tinymce-vue";
-import { mapActions } from "vuex";
 
 export default {
   middleware: "auth",

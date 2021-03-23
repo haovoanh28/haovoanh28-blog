@@ -8,6 +8,7 @@
         :placeholder="$t('generalMessage.email')"
         :icon="['fas', 'at']"
         v-model="$v.email.$model"
+        border
       />
       <div class="err-group" v-if="$v.email.$error">
         <BaseText errText v-if="!$v.email.required">{{
@@ -17,9 +18,10 @@
       </div>
       <BaseInput
         type="password"
-        :placeholder="$t  ('generalMessage.password')"
+        :placeholder="$t('generalMessage.password')"
         :icon="['fas', 'lock']"
         v-model="$v.password.$model"
+        border
       />
       <div class="err-group" v-if="$v.password.$error">
         <BaseText errText v-if="!$v.password.required">{{

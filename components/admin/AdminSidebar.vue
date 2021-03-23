@@ -169,7 +169,7 @@ export default {
         padding: 1rem 0 1rem 1rem;
         display: block;
         height: 100%;
-        width: 98%;
+        width: 100%;
         background: linear-gradient(to right, $white 50%, $primary-color 50%);
         background-size: 201% 100%;
         background-position: right bottom;

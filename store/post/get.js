@@ -24,6 +24,10 @@ export const mutations = {
     const index = state.paginatedPosts.findIndex(p => p._id === id);
     state.paginatedPosts.splice(index, 1);
   },
+  EDIT_POST(state, post) {
+    const index = state.paginatedPosts.findIndex(p => p._id === post._id);
+    state.paginatedPosts.splice(index, 1, post);
+  },
   SET_LOADING(state) {
     state.loading = true;
   },

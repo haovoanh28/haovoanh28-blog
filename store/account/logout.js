@@ -10,5 +10,6 @@ export const actions = {
     this.$cookies.remove("user");
     this.$cookies.remove("token");
     commit("auth/SET_USER", "", { root: true });
+    location.reload();
   }
 };

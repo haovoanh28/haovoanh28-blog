@@ -2,7 +2,6 @@
 
 html {
   font-family: "Source Sans Pro", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -19,9 +18,11 @@ html {
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+  font-family: inherit;
 }
 
-body {
+body,
+body > * {
   font-size: 1.5rem;
 }
 
@@ -49,6 +50,10 @@ body {
 
 .w-100 {
   width: 100% !important;
+}
+
+.w-50 {
+  width: 50% !important;
 }
 
 .err-text {

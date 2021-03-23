@@ -2,19 +2,19 @@
   <div class="checkbox">
     <input
       type="checkbox"
-      :id="type"
+      :id="cat"
       @change="handleInputChange"
-      :value="type"
-      :checked="value.includes(type)"
+      :value="cat"
+      :checked="value.includes(cat)"
     />
-    <label :for="type">{{ type }}</label>
+    <label :for="cat">{{ cat }}</label>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    type: String,
+    cat: String,
     value: Array,
   },
   methods: {
@@ -24,9 +24,10 @@ export default {
         currentCheckedTypes.push(e.target.value);
       } else {
         currentCheckedTypes = currentCheckedTypes.filter(
-          (type) => type !== e.target.value
+          (cat) => cat !== e.target.value
         );
       }
+      console.log(currentCheckedTypes);
       this.$emit("input", currentCheckedTypes);
     },
   },

@@ -1,7 +1,7 @@
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    title: "Hao Vo Anh 28 Blog",
+    title: "Tech Blog",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -9,7 +9,7 @@ export default {
         hid: "description",
         name: "description",
         content:
-          "haovoanh28 là trang web cá nhân của Võ Anh Hào. Dùng để chia sẻ kiến thức và ghi lại những gì mình thích"
+          "Đây là website được dùng để chia sẻ kiến thức và ghi lại những gì mình thích"
       },
       { name: "author", content: "haovoanh28 - Võ Anh Hào" },
       {

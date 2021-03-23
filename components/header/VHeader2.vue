@@ -77,15 +77,15 @@ export default {
   background-color: $primary-color;
   width: 20%;
   color: white;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   transition: margin-left 0.3s;
   z-index: 5;
   margin-left: 0;
-  margin-top: 6rem;
   opacity: 0;
   visibility: hidden;
+  font-size: 1.4rem;
 
   @include large_phone {
     min-height: 100vh;
@@ -139,7 +139,7 @@ export default {
         padding: 1rem 0 1rem 1rem;
         display: block;
         height: 100%;
-        width: 98%;
+        width: 100%;
         background: linear-gradient(to right, $white 50%, $primary-color 50%);
         background-size: 201% 100%;
         background-position: right bottom;

@@ -9,7 +9,7 @@
     </div>
     <div class="blog-preview__title">
       <BaseText fw600>
-        {{ handleText(post.title, 10) }}
+        {{ post.title }}
       </BaseText>
     </div>
     <client-only>

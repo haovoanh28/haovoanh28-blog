@@ -1,7 +1,7 @@
 <template>
   <transition name="list">
     <div class="post-item">
-      <BaseText>{{ handleText(post.title, 10) }}</BaseText>
+      <BaseText>{{ post.title }}</BaseText>
       <div>
         <BaseButton
           btnType="edit"

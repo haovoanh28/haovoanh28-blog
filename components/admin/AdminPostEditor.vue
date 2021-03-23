@@ -28,14 +28,14 @@
       </div>
       <div class="editor__checkbox-group">
         <BaseCheckbox
-          v-for="type in categories"
-          :type="type"
-          :key="`checkbox-${type}`"
-          v-model="post.postTypes"
+          v-for="cat in categories"
+          :cat="cat"
+          :key="`checkbox-${cat}`"
+          v-model="post.types"
         />
       </div>
-      <div class="err-group" v-if="$v.post.postTypes.$error">
-        <BaseText errText v-if="!$v.post.postTypes.required">{{
+      <div class="err-group" v-if="$v.post.types.$error">
+        <BaseText errText v-if="!$v.post.types.required">{{
           $t("errMessage.postTypesRequired")
         }}</BaseText>
       </div>
@@ -50,7 +50,7 @@
         }}</BaseText>
       </div>
     </div>
-    <div class="editor__tool">
+    <div class="editor__tool" style="border: 1px solid #926aa6">
       <editor
         api-key="zkr4z6fnh3osmkkm1h95whkoy62b5rvfewo6u83ac96mmm3k"
         :init="initConfig"
@@ -119,7 +119,7 @@ export default {
       post: {
         content: "",
         coverImg: "",
-        postTypes: [],
+        types: [],
         introduction: "",
         title: "",
       },
@@ -164,9 +164,8 @@ export default {
     },
     clearForm() {
       for (const key in this.post) {
-        if (key == "postTypes") {
-          this.post.postTypes = [];
-          console.log("asdsa");
+        if (key == "types") {
+          this.post.types = [];
           continue;
         }
         this.post[key] = "";
@@ -181,7 +180,7 @@ export default {
     handleEditPostClick() {
       if (!this.verifyForm()) return;
       this.editPostByIdAsync(this.post);
-      this.clearForm();
+      // this.clearForm();
       this.$v.$reset();
     },
   },
@@ -199,7 +198,7 @@ export default {
       introduction: {
         required,
       },
-      postTypes: {
+      types: {
         required,
       },
     },
@@ -208,7 +207,7 @@ export default {
     const { id } = this.$route.params;
     if (id) {
       const post = await this.getPostByIdAsync(id);
-      this.post = post;
+      this.post = { ...post };
       this.post._id = id;
     }
   },
@@ -222,14 +221,16 @@ export default {
   width: 80%;
 
   & textarea {
-    border: 1px solid black;
+    border: 1px solid $primary-color;
     border-radius: 4px;
     outline: none;
     padding: 1rem;
     width: 100%;
     resize: none;
-    height: 10rem;
+    min-height: 15rem;
     margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 1.5rem;
   }
 }
 
@@ -243,7 +244,7 @@ export default {
   flex-wrap: wrap;
   min-height: 10rem;
   border-radius: 4px;
-  border: 1px solid black;
+  border: 1px solid $primary-color;
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;

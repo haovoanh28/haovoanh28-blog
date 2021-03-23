@@ -18,14 +18,54 @@
         <div class="post-detail__title">
           <h1>{{ post.title }}</h1>
         </div>
+        <div class="post-detail__introduction">
+          <p>{{ post.introduction }}</p>
+        </div>
         <div class="post-detail__cover">
           <img :src="post.coverImg" alt="cover" />
         </div>
         <div>
           <div class="post-detail__content" v-html="post.content"></div>
         </div>
+        <div class="post-comments">
+          <h2>Comments</h2>
+          <form class="comments__form" @submit.prevent="handleAddComment">
+            <base-input
+              w50
+              border
+              :icon="['fas', 'user']"
+              placeholder="Leave your name here"
+              v-model="$v.userName.$model"
+              @blur="$v.userName.$touch()"
+            />
+            <div class="err-group" v-if="$v.userName.$error">
+              <BaseText errText v-if="!$v.userName.required">{{
+                "You have to leave your name to comment"
+              }}</BaseText>
+            </div>
+            <base-text-area
+              border
+              placeholder="Leave your comment here"
+              v-model="$v.userComment.$model"
+              @blur="$v.userComment.$touch()"
+            />
+            <div class="err-group" v-if="$v.userComment.$error">
+              <BaseText errText v-if="!$v.userComment.required">{{
+                "You can't comment empty string"
+              }}</BaseText>
+            </div>
+            <div class="comment-form__buttons">
+              <base-button>Comment</base-button>
+            </div>
+          </form>
+
+          <post-comment-item
+            v-for="(comment, index) in comments"
+            :key="`comment-${post._id}-${index}`"
+            :comment="comment"
+          />
+        </div>
       </client-only>
-      <post-comment />
     </template>
     <template v-else>
       <h1>Post not found</h1>
@@ -35,8 +75,11 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import { required } from "vuelidate/lib/validators";
+
 import convertTime from "@/libs/helpers/convertTime";
-import PostComment from "./PostComment.vue";
+import PostCommentItem from "~/components/post/PostCommentItem.vue";
+import BaseTextArea from "~/components/base/BaseTextArea.vue";
 
 export default {
   name: "post-details",
@@ -53,12 +96,35 @@ export default {
     };
   },
   components: {
-    PostComment,
+    PostCommentItem,
+    BaseTextArea,
   },
   data() {
     return {
       post: "",
+      userName: "",
+      userComment: "",
+      comments: [
+        {
+          author: "khazix",
+          text: "Nice article bro. Keep it up !!!",
+          reply: [],
+        },
+        {
+          author: "jayce",
+          text: "sound good",
+          reply: [],
+        },
+      ],
     };
+  },
+  validations: {
+    userName: {
+      required,
+    },
+    userComment: {
+      required,
+    },
   },
   computed: {
     ...mapState("post/get", ["loading"]),
@@ -66,6 +132,11 @@ export default {
   methods: {
     convertTime,
     ...mapActions("post/get", ["getPostByIdAsync"]),
+    ...mapActions("post/comment", ["addCommentAsync"]),
+
+    handleAddComment() {
+      this.addCommentAsync();
+    },
   },
   async fetch() {
     const checkForHexRegExp = new RegExp("^[0-9a-fA-F]{24}$");
@@ -79,7 +150,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .post-detail {
   width: 60%;
   margin: 0 auto;
@@ -124,6 +195,11 @@ export default {
   margin: 0 auto;
 }
 
+.post-detail__introduction {
+  line-height: 1.5 !important;
+  font-size: 1.6rem !important;
+}
+
 .post-detail__cover {
   height: 40rem;
   img {
@@ -159,5 +235,22 @@ export default {
 img {
   width: 100%;
   object-fit: cover;
+}
+
+.post-comments {
+  margin-top: 3rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.comments__form {
+  margin-bottom: 3rem;
+}
+
+.comment-form__buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>

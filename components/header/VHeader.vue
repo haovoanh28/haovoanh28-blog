@@ -70,6 +70,7 @@ export default {
   display: flex;
   @include flex_center;
   z-index: 100;
+  font-size: 1.4rem;
 }
 
 .header__nav {

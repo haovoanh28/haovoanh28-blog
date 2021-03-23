@@ -3,32 +3,31 @@
     <font-awesome-icon :icon="icon" v-if="icon" />
     <input
       :type="type"
-      :placeholder="placeholder"
+      v-bind="$attrs"
       :value="value"
       @input="handleInput"
+      @blur="handleBlur"
     />
   </div>
 </template>
 
 <script>
 export default {
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
       default: "text",
-    },
-    placeholder: {
-      type: String,
-    },
-    width: {
-      type: String,
-      default: "auto",
     },
     icon: {
       type: Array,
     },
     value: String,
     border: {
+      type: Boolean,
+      default: false,
+    },
+    w50: {
       type: Boolean,
       default: false,
     },
@@ -41,10 +40,13 @@ export default {
     handleInput(e) {
       this.$emit("input", e.target.value);
     },
+    handleBlur(e) {
+      this.$emit("blur");
+    },
   },
   computed: {
     classObj() {
-      return { "input-border": this.border };
+      return { "input-border": this.border, "w-50": this.w50 };
     },
   },
 };
@@ -69,7 +71,8 @@ export default {
     outline: none;
     border: none;
     width: 90%;
-    border-left: 1px solid lightgray;
+    border-left: 1px solid $primary-color;
+    font-size: 1.5rem;
   }
 }
 
