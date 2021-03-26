@@ -16,12 +16,6 @@ export const actions = {
         introduction,
         types
       });
-
-      // const updatedPost = response.data;
-
-      // commit("post/get/EDIT_POST", updatedPost, { root: true });
-
-      console.log(response);
       this.$notify({
         type: "success",
         title: "Success",

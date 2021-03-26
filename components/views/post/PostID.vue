@@ -36,7 +36,6 @@
               :icon="['fas', 'user']"
               placeholder="Leave your name here"
               v-model="$v.userName.$model"
-              @blur="$v.userName.$touch()"
             />
             <div class="err-group" v-if="$v.userName.$error">
               <BaseText errText v-if="!$v.userName.required">{{
@@ -47,7 +46,6 @@
               border
               placeholder="Leave your comment here"
               v-model="$v.userComment.$model"
-              @blur="$v.userComment.$touch()"
             />
             <div class="err-group" v-if="$v.userComment.$error">
               <BaseText errText v-if="!$v.userComment.required">{{
@@ -55,14 +53,15 @@
               }}</BaseText>
             </div>
             <div class="comment-form__buttons">
-              <base-button>Comment</base-button>
+              <base-button :loading="isCommenting">Comment</base-button>
             </div>
           </form>
 
           <post-comment-item
-            v-for="(comment, index) in comments"
+            v-for="(comment, index) in post.comments"
             :key="`comment-${post._id}-${index}`"
             :comment="comment"
+            @new-post="handleNewPost"
           />
         </div>
       </client-only>
@@ -76,10 +75,12 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
-
 import convertTime from "@/libs/helpers/convertTime";
 import PostCommentItem from "~/components/post/PostCommentItem.vue";
 import BaseTextArea from "~/components/base/BaseTextArea.vue";
+
+// Use to add syntax hightlight to code sample
+import * as prism from "@/libs/js/prism";
 
 export default {
   name: "post-details",
@@ -104,18 +105,6 @@ export default {
       post: "",
       userName: "",
       userComment: "",
-      comments: [
-        {
-          author: "khazix",
-          text: "Nice article bro. Keep it up !!!",
-          reply: [],
-        },
-        {
-          author: "jayce",
-          text: "sound good",
-          reply: [],
-        },
-      ],
     };
   },
   validations: {
@@ -128,14 +117,47 @@ export default {
   },
   computed: {
     ...mapState("post/get", ["loading"]),
+    ...mapState("post/comment", ["isCommenting"]),
   },
   methods: {
     convertTime,
     ...mapActions("post/get", ["getPostByIdAsync"]),
     ...mapActions("post/comment", ["addCommentAsync"]),
 
-    handleAddComment() {
-      this.addCommentAsync();
+    clearForm() {
+      this.userComment = "";
+      this.userName = "";
+      this.$v.$reset();
+    },
+
+    async handleAddComment() {
+      this.$v.$touch();
+
+      if (this.$v.$invalid || this.$v.$error) {
+        setTimeout(() => {
+          this.$v.$reset();
+        }, 3000);
+        return;
+      }
+
+      let currentDate = convertTime(new Date());
+      const commentObj = {
+        author: this.userName,
+        text: this.userComment,
+        created: currentDate,
+        replies: [],
+      };
+      const newPost = await this.addCommentAsync({
+        comment: commentObj,
+        postId: this.post._id,
+      });
+
+      this.post = newPost;
+      this.clearForm();
+    },
+
+    handleNewPost(newPost) {
+      this.post = newPost;
     },
   },
   async fetch() {
@@ -151,10 +173,13 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/libs/styles/css/prism.css";
+
 .post-detail {
   width: 60%;
   margin: 0 auto;
   padding: 0.5rem 0 2rem 0;
+  text-align: justify;
 
   & > *:not(:first-child) {
     margin-top: 1.5rem;
@@ -227,7 +252,7 @@ export default {
   p {
     line-height: 1.5 !important;
     font-size: 1.6rem !important;
-    letter-spacing: 0.4px !important;
+    letter-spacing: 0.3px !important;
     margin-top: 1rem;
   }
 }
@@ -247,6 +272,12 @@ img {
 
 .comments__form {
   margin-bottom: 3rem;
+
+  @include large_phone {
+    .input {
+      width: 100% !important;
+    }
+  }
 }
 
 .comment-form__buttons {

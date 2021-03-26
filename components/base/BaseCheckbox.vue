@@ -27,7 +27,6 @@ export default {
           (cat) => cat !== e.target.value
         );
       }
-      console.log(currentCheckedTypes);
       this.$emit("input", currentCheckedTypes);
     },
   },

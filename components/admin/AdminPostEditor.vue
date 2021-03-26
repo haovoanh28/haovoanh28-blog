@@ -107,14 +107,15 @@ export default {
         height: 800,
         menubar: false,
         strict_loading_mode: true,
+        content_style: ".mce-content-body {font-size: 15px }",
         plugins: [
           "advlist autolink lists link image charmap print preview anchor",
-          "searchreplace visualblocks code fullscreen",
+          "searchreplace visualblocks code codesample fullscreen",
           "insertdatetime media table paste code help wordcount",
           "code",
         ],
         toolbar:
-          "undo redo | formatselect | bold italic backcolor |  alignleft aligncenter alignright alignjustify image insert link |  bullist numlist outdent indent |removeformat | code | help",
+          "undo redo | formatselect | bold italic backcolor |  alignleft aligncenter alignright alignjustify image insert link |  bullist numlist outdent indent |removeformat | code | codesample | help",
       },
       post: {
         content: "",

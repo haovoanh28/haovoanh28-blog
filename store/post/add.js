@@ -7,7 +7,7 @@ export const mutations = {};
 export const actions = {
   async addPostAsync(
     { commit },
-    { title, content, postTypes, coverImg, introduction }
+    { title, content, types, coverImg, introduction }
   ) {
     try {
       commit("post/get/SET_LOADING", null, { root: true });
@@ -15,7 +15,7 @@ export const actions = {
         title,
         content,
         coverImg,
-        types: postTypes,
+        types,
         introduction
       });
 

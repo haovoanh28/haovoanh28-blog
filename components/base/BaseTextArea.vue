@@ -3,7 +3,6 @@
     class="textarea"
     :class="classObj"
     @input="handleInput"
-    @blur="$emit('blur')"
     :value="value"
   />
 </template>
